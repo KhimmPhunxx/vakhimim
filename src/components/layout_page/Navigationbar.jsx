@@ -20,6 +20,27 @@ const Navigationbar = () => {
             window.removeEventListener("scroll", handleScroll);
         };
     }, []);
+
+    const onClickResume = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth" // Enables smooth scrolling
+        });
+    }
+
+    const onClickAboutMe = () => {
+        window.scrollTo({
+            top: 700,
+            behavior: "smooth" // Enables smooth scrolling
+        });
+    };
+
+    const onClickSoftwareProject = () => {
+        window.scrollTo({
+            top: 3000,
+            behavior: "smooth" // Enables smooth scrolling
+        });
+    }
     return (
         <nav
             className={`sticky z-20 top-0  left-0 w-full transition-shadow duration-300 ${shadow ? "shadow-md bg-white z-20" : "z-20 shadow-none bg-transparent"
@@ -35,9 +56,9 @@ const Navigationbar = () => {
                 </div>
                 <div className="ment">
                     <ul className=' flex justify-center items-center uppercase'>
-                        <NavLink to='/' className=' font-medium text-gray-600 hover:text-gray-900 px-2 py-2'>About</NavLink>
-                        <NavLink to='/about' className='font-medium text-gray-600 hover:text-gray-900 px-2 py-2'>Resume</NavLink>
-                        <NavLink to='/contact' className='font-medium text-gray-600 hover:text-gray-900 px-2 py-2'>Software project</NavLink>
+                        <NavLink onClick={onClickResume} className=' font-medium text-gray-600 hover:text-gray-900 px-2 py-2'>Resume</NavLink>
+                        <NavLink onClick={onClickAboutMe} className='font-medium text-gray-600 hover:text-gray-900 px-2 py-2'>About</NavLink>
+                        <NavLink onClick={onClickSoftwareProject} className='font-medium text-gray-600 hover:text-gray-900 px-2 py-2'>Software project</NavLink>
                         <NavLink to='/contact' className='font-medium text-gray-600 hover:text-gray-900 px-2 py-2'>design project</NavLink>
                     </ul>
                 </div>
