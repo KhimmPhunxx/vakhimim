@@ -58,8 +58,14 @@ const Navigationbar = () => {
                     <ul className=' flex justify-center items-center uppercase'>
                         <NavLink onClick={onClickResume} className=' font-medium text-gray-600 hover:text-gray-900 px-2 py-2'>Resume</NavLink>
                         <NavLink onClick={onClickAboutMe} className='font-medium text-gray-600 hover:text-gray-900 px-2 py-2'>About</NavLink>
-                        <NavLink onClick={onClickSoftwareProject} className='font-medium text-gray-600 hover:text-gray-900 px-2 py-2'>Software project</NavLink>
-                        <NavLink to='/contact' className='font-medium text-gray-600 hover:text-gray-900 px-2 py-2'>design project</NavLink>
+                        <NavLink onClick={onClickSoftwareProject} className='font-medium text-gray-600 hover:text-gray-900 px-2 py-2'>design project</NavLink>
+                        <NavLink to='/contact' className='font-medium text-gray-600 hover:text-gray-900 px-2 py-2'>Software project </NavLink>
+                       {/* create a button contact */}
+                        <button className='bg-[#3B6790] ml-4 hover:bg-[#2A4365] duration-300 py-2 px-4 rounded-sm cursor-pointer'>
+                            <NavLink className='font-medium text-gray-100 hover:text-gray-200'>Contact</NavLink>
+                        </button>
+
+
                     </ul>
                 </div>
             </div>

@@ -3,6 +3,9 @@ import { FaFacebookF, FaGithub, FaInstagram, FaLinkedin, FaYoutube } from "react
 import profile from '../../assets/images/profile.jpg'
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { Typewriter, Cursor, useTypewriter } from 'react-simple-typewriter';
+
+const PDF_FILE_URL = 'http://localhost:5173/cv_imvakhim.pdf'
 
 const Resume = () => {
 
@@ -11,6 +14,21 @@ const Resume = () => {
             duration: 2000
         });
     }, []);
+
+    const [typeEffect] = useTypewriter({
+        words: ['Frontend Developer', 'UI/UX Designer', 'React Developer', 'Web Developer'],
+        loop: {
+            count: -1,
+            delay: 2000
+        },
+        deleteSpeed: 40,
+        typeSpeed: 100,
+    });
+
+    const onClickDownloadCV = () => {
+        window.open(PDF_FILE_URL, '_blank')
+    }
+
 
     return (
         <main className=' h-[600px] w-full max-w-full mx-auto flex justify-between'>
@@ -52,15 +70,26 @@ const Resume = () => {
 
             </div>
             <div className='w-[50%] justify-center flex-col flex space-y-10' data-aos='zoom-in'>
-                <h1 className=' text-7xl font-bold tracking-wide leading-'>
-                    Hey World, <br /> I'm Vakhim!
+                <h1 className='
+               
+                text-7xl font-bold tracking-wide leading-'>
+                    Hey World, <br />
+                    <h1 className=' text-5xl pt-5 
+                                    text-transparent bg-clip-text bg-gradient-to-r from-[#3B6790] to-pink-500'>
+                    
+                        I'm <span>
+                            {typeEffect}
+                        </span>
+                    </h1>
                 </h1>
                 <div>
-                    <button>
-                        <a href="https://drive.google.com/drive/u/0/folders/10Ej7wNxWPZJ8GbfnOw0UnFm7hbwrh0rF" target='_blank' className='bg-[#3B6790] text-white px-10 py-3 rounded-full hover:bg-[#2A4365] duration-200'>Download Resume</a>
+                    <button
+                        onClick={onClickDownloadCV}
+                    >
+                        <a target='_blank' className='bg-[#3B6790] hover:bg-[#2A4365] text-white px-10 py-3 rounded-full  duration-200'>Review My Resume</a>
                     </button>
                 </div>
-                
+
                 <div className='w-[60%] space-y-5'>
                     <p>I'm Khim is a passionate Frontend Developer with a strong foundation in building modern, user-friendly web applications. I graduated from Royal University of Phnom Penh, where I developed a deep understanding of web technologies and UI/UX principles.</p>
                     <p>About Me I am a passionate Frontend Developer with a strong foundation in building modern, user-friendly web applications.</p>

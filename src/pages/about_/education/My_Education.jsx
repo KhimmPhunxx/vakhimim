@@ -16,7 +16,7 @@ const My_Education = () => {
     }, []);
 
     return (
-        <main className=' mb-10 mt-10 max-w-full mx-auto bg-slate-50' >
+        <main className=' pb-10 mt-10 max-w-full mx-auto bg-slate-100' >
             <section className=' max-w-7xl mx-auto'>
                 <h1 className='text-3xl font-semibold text-center uppercase pt-10'>My Education</h1>
                 <p className='mx-auto text-lg w-3xl text-gray-600 text-center'>

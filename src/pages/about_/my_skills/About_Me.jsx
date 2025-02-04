@@ -15,8 +15,6 @@ import { Modal } from 'antd';
 import { FaNodeJs } from 'react-icons/fa6';
 import { SiExpress, SiMongodb, SiMysql } from 'react-icons/si';
 
-
-
 const About_Me = () => {
 
     const [isModalOpen, setIsModalOpen] = useState(false);
