@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react'
+import { FaArrowUp } from 'react-icons/fa';
 import { NavLink } from 'react-router-dom'
 
 const Navigationbar = () => {
 
     const [shadow, setShadow] = useState(false);
+    const [isVisible, setIsVisible] = useState(false);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -41,11 +43,40 @@ const Navigationbar = () => {
             behavior: "smooth" // Enables smooth scrolling
         });
     }
+
+    // Function to handle scroll event
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 300) {
+                setIsVisible(true);
+            } else {
+                setIsVisible(false);
+            }
+        };
+
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
+    // Function to scroll to top
+    const scrollToTop = () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    };
+
     return (
         <nav
             className={`sticky z-20 top-0  left-0 w-full transition-shadow duration-300 ${shadow ? "shadow-md bg-white z-20" : "z-20 shadow-none bg-transparent"
                 }`}
         >
+            <button
+                className='fixed bottom-5 right-5 bg-[#3B6790] hover:bg-[#2A4365] duration-300 text-white py-4 px-4 rounded-sm cursor-pointer'
+                onClick={scrollToTop}
+                style={{
+                    display: isVisible ? "block" : "none",
+                }}
+            >
+                <FaArrowUp />
+            </button>
             <div className=' max-w-7xl mx-auto py-3 flex justify-between items-center'>
                 <div className="logo cursor-pointer ">
                     <h1 className=' text-2xl font-semibold flex'>
@@ -60,12 +91,10 @@ const Navigationbar = () => {
                         <NavLink onClick={onClickAboutMe} className='font-medium text-gray-600 hover:text-gray-900 px-2 py-2'>About</NavLink>
                         <NavLink onClick={onClickSoftwareProject} className='font-medium text-gray-600 hover:text-gray-900 px-2 py-2'>design project</NavLink>
                         <NavLink to='/contact' className='font-medium text-gray-600 hover:text-gray-900 px-2 py-2'>Software project </NavLink>
-                       {/* create a button contact */}
+                        {/* create a button contact */}
                         <button className='bg-[#3B6790] ml-4 hover:bg-[#2A4365] duration-300 py-2 px-4 rounded-sm cursor-pointer'>
                             <NavLink className='font-medium text-gray-100 hover:text-gray-200'>Contact</NavLink>
                         </button>
-
-
                     </ul>
                 </div>
             </div>
